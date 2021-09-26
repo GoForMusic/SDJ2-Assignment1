@@ -24,22 +24,7 @@ public class OffState implements RadiatorState {
     }
 
     @Override
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-
-    }
-
-    @Override
     public void addPropertyChangeListener(String eventName, PropertyChangeListener listener) {
-
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-
-    }
-
-    @Override
-    public void removePropertyChangeListener(String eventName, PropertyChangeListener listener) {
 
     }
 }

@@ -7,15 +7,15 @@ import java.beans.PropertyChangeListener;
 public class Power3State implements RadiatorState {
 
     private final int POWER =3 ;
-    private Thread temp=null;
+    private Thread temp=new Thread((Runnable) this);
 
     public Power3State(Radiator radiator)
     {
+        temp.setDaemon(true);
+        temp.start();
         temp = new Thread(()->{
             sleep(radiator);
     });
-        temp.setDaemon(true);
-        temp.start();
     }
 
     @Override
@@ -48,24 +48,8 @@ public class Power3State implements RadiatorState {
         }
     }
 
-
-    @Override
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-
-    }
-
     @Override
     public void addPropertyChangeListener(String eventName, PropertyChangeListener listener) {
-
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-
-    }
-
-    @Override
-    public void removePropertyChangeListener(String eventName, PropertyChangeListener listener) {
 
     }
 }

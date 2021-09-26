@@ -22,8 +22,8 @@ public class HeatingController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vfm) {
         viewHandler = vh;
         vm = vfm.getHeatingVM();
-        thermometer0.textProperty().bindBidirectional(vm.getThermometer0());
-        //thermometer0.textProperty().bind(vm.getThermometer0());
+        //thermometer0.textProperty().bindBidirectional(vm.getThermometer0());
+        thermometer0.textProperty().bind(vm.getThermometer0());
         thermometer1.textProperty().bind(vm.getThermometer1());
         thermometer2.textProperty().bind(vm.getThermometer2());
         warningMessage.textProperty().bind(vm.warningLabelProperty());

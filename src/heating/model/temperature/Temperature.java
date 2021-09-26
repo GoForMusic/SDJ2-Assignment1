@@ -17,4 +17,8 @@ public class Temperature {
     public String getId() {
         return id;
     }
+    public String toString() {
+        return this.id + "      " + this.value;
+    }
+
 }

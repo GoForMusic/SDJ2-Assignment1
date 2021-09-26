@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ViewHandler {
-    private final ViewModelFactory vmf;
+    private ViewModelFactory vmf;
     private Stage mainStage;
 
     //specific scenes

@@ -1,6 +1,8 @@
 package heating.external;
 
 
+import heating.core.ModelFactory;
+import heating.core.ViewModelFactory;
 import heating.model.RadiatorState;
 import heating.model.TemperatureModel;
 import heating.model.radiator.Radiator;
@@ -15,11 +17,20 @@ public class Thermometer implements Runnable{
     private TemperatureModel temperatureModel;
     private RadiatorState radiatorState;
 
-    public Thermometer(String id, int distance, TemperatureModel temperatureModel, RadiatorState radiator) {
+    public Thermometer(String id, int distance, ModelFactory modelFactory) {
         this.id = id;
         this.distance = distance;
-        this.temperatureModel = temperatureModel;
-        this.radiatorState = radiator;
+        this.temperatureModel = modelFactory.getTemperatureModel();
+        this.radiatorState = modelFactory.getRadiator();
+        lastMeasuredIndoorTemperature2 = 8;
+        lastMeasuredIndoorTemperature1 = 9;
+        lastMeasuredOutdoorTemperature = 5;
+    }
+
+    public Thermometer(String id, ModelFactory modelFactory) {
+        this.id = id;
+        this.temperatureModel = modelFactory.getTemperatureModel();
+        this.radiatorState = modelFactory.getRadiator();
         lastMeasuredIndoorTemperature2 = 8;
         lastMeasuredIndoorTemperature1 = 9;
         lastMeasuredOutdoorTemperature = 5;
@@ -55,7 +66,7 @@ public class Thermometer implements Runnable{
                 if (id.equals("t1")) {
                     lastMeasuredIndoorTemperature1 = temperature(lastMeasuredIndoorTemperature1, radiatorState.getPower(), this.distance, lastMeasuredOutdoorTemperature, 6);
                     temperatureModel.addTemperature(id, lastMeasuredIndoorTemperature1);
-                    //System.out.println("Temperature :" + lastMeasuredIndoorTemperature1 + " ID : " + id);
+                    System.out.println("Temperature :" + lastMeasuredIndoorTemperature1 + " ID : " + id);
 
                 }
                 if (this.id.equals("t2")) {

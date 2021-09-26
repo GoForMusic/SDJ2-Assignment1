@@ -38,22 +38,7 @@ public class Radiator implements RadiatorState {
     }
 
     @Override
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        support.addPropertyChangeListener(listener);
-    }
-
-    @Override
     public void addPropertyChangeListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName,listener);
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        support.removePropertyChangeListener(listener);
-    }
-
-    @Override
-    public void removePropertyChangeListener(String eventName, PropertyChangeListener listener) {
-        support.removePropertyChangeListener(eventName,listener);
     }
 }

@@ -15,15 +15,15 @@ public class HeatingApplication extends Application {
         ViewModelFactory vmf = new ViewModelFactory(mf);
 
 
-        Thermometer thermometer1 = new Thermometer("t1",1,mf.getTemperatureModel(),mf.getRadiator());
-        Thermometer thermometer2 = new Thermometer("t2", 7, mf.getTemperatureModel(),mf.getRadiator());
-        Thermometer thermometer3 = new Thermometer("t0", 10, mf.getTemperatureModel(),mf.getRadiator());
+        Thermometer thermometer1 = new Thermometer("t1",1,mf);
+        Thermometer thermometer2 = new Thermometer("t2", 7, mf);
+        Thermometer thermometer3 = new Thermometer("t0", 10, mf);
         Thread thread1 = new Thread(thermometer1);
         Thread thread2 = new Thread(thermometer2);
         Thread thread3 = new Thread(thermometer3);
-        thread1.setDaemon(true);
+       thread1.setDaemon(true);
         thread1.start();
-        thread2.setDaemon(true);
+       thread2.setDaemon(true);
         thread2.start();
         thread3.setDaemon(true);
         thread3.start();
@@ -32,8 +32,5 @@ public class HeatingApplication extends Application {
         vh.start();
     }
 
-    @Override
-    public void stop() throws Exception {
-        System.out.println("Shutting down...");
-    }
+
 }

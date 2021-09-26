@@ -3,7 +3,7 @@ package heating.core;
 import heating.views.main.HeatingVM;
 
 public class ViewModelFactory {
-    private final ModelFactory modelFactory;
+    private ModelFactory modelFactory;
 
     //add scenes
     private HeatingVM heatingVM;
@@ -17,7 +17,7 @@ public class ViewModelFactory {
     public HeatingVM getHeatingVM() {
         if(heatingVM == null)
         {
-            heatingVM = new HeatingVM(modelFactory.getHeatingModel());
+            heatingVM = new HeatingVM(modelFactory);
         }
         return heatingVM;
     }
