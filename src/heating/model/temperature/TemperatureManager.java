@@ -21,7 +21,7 @@ public class TemperatureManager implements TemperatureModel {
         Temperature temperature1 = new Temperature(id,value);
         // Fire the change of property named Temperature added
 
-        System.out.println("----2");
+
         support.firePropertyChange("Temperature",null,temperature1);
     }
 
@@ -35,6 +35,6 @@ public class TemperatureManager implements TemperatureModel {
 
     @Override
     public void addPropertyChangeListener(String eventName, PropertyChangeListener listener) {
-        
+        support.addPropertyChangeListener(eventName,listener);
     }
 }

@@ -30,6 +30,7 @@ public class Radiator implements RadiatorState {
     }
 
     public int getPower() {
+        support.firePropertyChange("Power",null,currentState.getPower());
         return currentState.getPower();
     }
 

@@ -29,7 +29,7 @@ public class HeatingVM{
         warningLabel = new SimpleStringProperty();
         modelFactory.getTemperatureModel().addPropertyChangeListener("Temperature", this::propertyChangeIndoor);
         modelFactory.getTemperatureModel().addPropertyChangeListener("Outdoor", this::propertyChangeOutdoor);
-        //modelFactory.addPropertyChangeListener("Power",this::propertyChangeRadiator);
+        modelFactory.getRadiator().addPropertyChangeListener("Power",this::propertyChangeRadiator);
     }
 
     public StringProperty getThermometer0() {
@@ -95,7 +95,7 @@ public class HeatingVM{
         Platform.runLater(()->{
             if (temperature.getId().equals("t1"))
             {
-                thermometer1.set(temperature.getValue()+"");
+                thermometer1.set("Thermometer 1: "+temperature.getValue()+"");
             }
             else if (temperature.getId().equals("t2"))
             {
