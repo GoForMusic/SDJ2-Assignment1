@@ -22,18 +22,9 @@ public class Thermometer implements Runnable{
         this.distance = distance;
         this.temperatureModel = modelFactory.getTemperatureModel();
         this.radiatorState = modelFactory.getRadiator();
-        lastMeasuredIndoorTemperature2 = 8;
-        lastMeasuredIndoorTemperature1 = 9;
-        lastMeasuredOutdoorTemperature = 5;
-    }
-
-    public Thermometer(String id, ModelFactory modelFactory) {
-        this.id = id;
-        this.temperatureModel = modelFactory.getTemperatureModel();
-        this.radiatorState = modelFactory.getRadiator();
-        lastMeasuredIndoorTemperature2 = 8;
-        lastMeasuredIndoorTemperature1 = 9;
-        lastMeasuredOutdoorTemperature = 5;
+        lastMeasuredIndoorTemperature2 = 0;
+        lastMeasuredIndoorTemperature1 = 0;
+        lastMeasuredOutdoorTemperature = 0;
     }
 
     private double temperature(double lastMeasuredIndoorTemperature, int heatersPower, int distance, double outdoorTemperature, int seconds) {
@@ -83,7 +74,7 @@ public class Thermometer implements Runnable{
                 }
 
 
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
